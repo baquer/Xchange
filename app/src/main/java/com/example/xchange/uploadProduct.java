@@ -68,6 +68,10 @@ public class uploadProduct extends AppCompatActivity {
         String desc = description.getText().toString();
         String type = "donate";
 
+        if(filePath != null) {
+            Toast.makeText(this, "file Path is not null", Toast.LENGTH_SHORT).show();
+        }
+
 
         Product prod = new Product(product,desc,type);
         FirebaseDatabase.getInstance().getReference("ProductDetails").push().setValue(prod).addOnCompleteListener(new OnCompleteListener<Void>() {
